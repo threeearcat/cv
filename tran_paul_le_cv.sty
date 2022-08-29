@@ -60,7 +60,7 @@
       \@info
     \end{tabular}}}\hfil
   }
-  \vspace*{0.2cm}
+  \vspace*{0.5cm}
 }
 
 %% Section headings
@@ -113,12 +113,12 @@
 \usepackage{xpatch}
 \xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
 
-% %% Remove In: for an article.
-% \renewbibmacro{in:}{%
-%   \ifentrytype{article}{}{
-%     \printtext{\bibstring{in}\intitlepunct}
-%   }
-% }
+%% Remove In: for an article.
+\renewbibmacro{in:}{%
+  \ifentrytype{inproceedings}{}{
+    \printtext{\bibstring{in}\intitlepunct}
+  }
+}
 %\makeatletter
 %\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 %\makeatother
@@ -180,13 +180,40 @@
 %% Add all papers in the bib file.
 \nocite{*}
 
-%% Reformatting the bullets to look nicer
-\renewcommand{\labelitemi}{\ding{228}}
-\DeclareSortingTemplate{ty}{
-  \sort{
-    \field{title}
-  }
-  \sort{
-    \field{year}
-  }
+% Make author name bold: https://tex.stackexchange.com/a/327046
+\newcommand*{\boldname}[3]{%
+  \def\lastname{#1}%
+  \def\firstname{#2}%
+  \def\firstinit{#3}
 }
+\boldname{}{}{}
+
+\renewcommand{\mkbibnamegiven}[1]{%
+  \ifboolexpr{ ( test {\ifdefequal{\firstname}{\namepartgiven}} or test {\ifdefequal{\firstinit}{\namepartgiven}} ) and test {\ifdefequal{\lastname}{\namepartfamily}} }
+  {\mkbibbold{#1}}{#1}%
+}
+
+\renewcommand{\mkbibnamefamily}[1]{%
+  \ifboolexpr{ ( test {\ifdefequal{\firstname}{\namepartgiven}} or test {\ifdefequal{\firstinit}{\namepartgiven}} ) and test {\ifdefequal{\lastname}{\namepartfamily}} }
+  {\mkbibbold{#1}}{#1}%
+}
+
+
+\newcommand{\outerlist}[1]{
+  \begin{itemize}[leftmargin=*] #1 \end{itemize}}
+
+\newcommand{\denseouterlist}[1]{
+  \begin{itemize}[leftmargin=*,itemsep=0pt] #1 \end{itemize}}
+
+\newcommand{\innerlist}[1]{
+  \begin{itemize}[topsep=0pt] #1 \end{itemize}}
+
+\newcommand{\orderedouterlist}[1]{
+  \begin{enumerate}[leftmargin=*] #1 \end{enumerate}}
+
+\definecolor{color-detail}{gray}{0.20}
+
+\newcommand{\entry}[1]{\item\small{#1}}
+\newcommand{\entryextra}[1]{\textcolor{color-detail}{\entry{#1}}}
+\newcommand{\entrylabeled}[2][]{\item[#1]\small{#2}}
+\newcommand{\entrylabeledextra}[2][]{\item[#1]\small{\textcolor{color-detail}{#2}}}
