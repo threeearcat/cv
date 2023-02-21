@@ -22,15 +22,9 @@
 
 \documentclass{resume} % Use the custom resume.cls style
 
-\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
-\usepackage{kotex}
 \usepackage{tran_paul_le_cv}
-\usepackage[colorlinks=true]{hyperref}
-\usepackage{xspace}
 
-\usepackage[T1]{fontenc}
-\renewcommand{\familydefault}{\sfdefault}
-% \usepackage[scaled]{helvet}
+\input{pkgs}
 
 \boldname{Jeong}{Dae\bibnamedelima R.}{}
 
@@ -52,6 +46,9 @@
 \input{experience}
 \input{patents}
 \input{skills}
+
+\newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\scriptsize\color{gray}Last updated on #1}}
+\updateinfo
 
 %----------------------------------------------------------------------------------------
 %	EXAMPLE SECTION
