@@ -22,6 +22,8 @@
 
 \documentclass{resume} % Use the custom resume.cls style
 
+% Document margins
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
 \usepackage{tran_paul_le_cv}
 
 \input{pkgs}
@@ -47,7 +49,7 @@
 \input{patents}
 \input{skills}
 
-\newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\scriptsize\color{gray}Last updated on #1}}
+\newcommand{\updateinfo}[1][\today]{\par\vfill\hfill{\color{gray}Last updated on #1}}
 \updateinfo
 
 %----------------------------------------------------------------------------------------
