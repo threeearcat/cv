@@ -81,7 +81,7 @@
 
 %% Bibliography formatting
 \usepackage[
-  sorting = ydnt,
+  sorting = ymt,
   citestyle = authoryear,
   bibstyle = ieee-custom,
   maxnames = 20,
@@ -94,6 +94,27 @@
   backend = biber,
   date = year
 ]{biblatex}
+
+\DeclareSortingTemplate{ymt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort[direction=descending]{
+    \field{sortyear}
+    \field{year}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{00}
+  }
+  \sort{
+    \field{sorttitle}
+  }
+}
+
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat[article]{pages}{#1}
 \DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
