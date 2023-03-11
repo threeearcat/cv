@@ -9,6 +9,7 @@ $(BUILD_DIR)/cv.pdf: $(SOURCES)
 	$(CC) -output-directory=$(BUILD_DIR) cv.tex
 	biber -output-directory=$(BUILD_DIR) cv
 	$(CC) -output-directory=$(BUILD_DIR) cv.tex
+	$(CC) -output-directory=$(BUILD_DIR) cv.tex
 
 clean:
 	rm -rf $(BUILD_DIR)
