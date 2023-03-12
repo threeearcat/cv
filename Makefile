@@ -1,6 +1,7 @@
 CC=lualatex
 BUILD_DIR=./build
 SOURCES=$(wildcard *.tex *.bib *.sty *.cls)
+CV=./cv/cv.pdf
 
 all: $(BUILD_DIR)/cv.pdf
 
@@ -10,9 +11,12 @@ $(BUILD_DIR)/cv.pdf: $(SOURCES)
 	biber -output-directory=$(BUILD_DIR) cv
 	$(CC) -output-directory=$(BUILD_DIR) cv.tex
 	$(CC) -output-directory=$(BUILD_DIR) cv.tex
-	cp $@ cv/
+	cp $@ $(CV)
 
 clean:
 	rm -rf $(BUILD_DIR)
 
-.PHONY: all clean
+open:
+	xdg-open $(CV)
+
+.PHONY: all clean open
