@@ -81,7 +81,7 @@
 
 %% Bibliography formatting
 \usepackage[
-  sorting = ymt,
+  sorting = ymdt,
   citestyle = authoryear,
   bibstyle = ieee-custom,
   maxnames = 20,
@@ -95,7 +95,7 @@
   date = year
 ]{biblatex}
 
-\DeclareSortingTemplate{ymt}{
+\DeclareSortingTemplate{ymdt}{
   \sort{
     \field{presort}
   }
@@ -108,7 +108,11 @@
   }
   \sort[direction=descending]{
     \field[padside=left,padwidth=2,padchar=0]{month}
-    \literal{00}
+    \literal{99}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{99}
   }
   \sort{
     \field{sorttitle}
