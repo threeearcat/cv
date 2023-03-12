@@ -1,6 +1,6 @@
 CC=lualatex
 BUILD_DIR=./build
-SOURCES=$(wildcard *.tex *.bib *.sty)
+SOURCES=$(wildcard *.tex *.bib *.sty *.cls)
 
 all: $(BUILD_DIR)/cv.pdf
 

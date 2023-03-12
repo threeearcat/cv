@@ -35,6 +35,11 @@
 \def \name#1{\def\@name{#1}} % Defines the \name command to set name
 \def \@name {} % Sets \@name to empty by default
 
+\def \position#1{\def\@position{#1}}
+\def \@position {}
+\def \subposition#1{\def\@subposition{#1}}
+\def \@subposition {}
+
 \def \addressSep {$\diamond$} % Set default address separator to a diamond
 
 % One, two or three address lines can be specified 
@@ -72,6 +77,18 @@
   \endgroup
 }
 
+\def \printposition {
+  \begingroup
+  \centerline{\large\bf\@position}
+  \par\smallskip
+    \@ifundefined{@subposition}{}{
+      \centerline{\large\bf\@subposition}
+    }
+  \endgroup
+  \par
+  \bigskip
+}
+
 %----------------------------------------------------------------------------------------
 %	PRINT THE HEADING LINES
 %----------------------------------------------------------------------------------------
@@ -80,6 +97,7 @@
 \renewcommand{\document}{
   \ori@document  % Begin document
   \printname % Print the name specified with \name
+  \printposition
   \@ifundefined{@addressone}{}{ % Print the first address if specified
     \printaddress{\@addressone}}
   \@ifundefined{@addresstwo}{}{ % Print the second address if specified
