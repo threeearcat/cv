@@ -460,44 +460,13 @@
 % New bibliography drivers, using the required order of fields. These
 % are mainly copied from standard.bbx then modified.
 \DeclareBibliographyDriver{article}{%
-  \usebibmacro{bibindex}%
-  \usebibmacro{begentry}%
-  \usebibmacro{author/translator+others}%
-  \newunit
-  \usebibmacro{title}%
-  \newunit
-  \printlist{language}%
-  \newunit\newblock
-  \usebibmacro{byauthor}%
-  \newunit\newblock
-  \usebibmacro{bytranslator+others}%
-  \newunit\newblock
-  \printfield{version}%
-  \newunit\newblock
-  \usebibmacro{journal+issuetitle}%
-  \newunit
-  \usebibmacro{byeditor+others}%
-  \newunit
-  \usebibmacro{pages}%
-  \newunit
-  \usebibmacro{issue+date}%
-  \newunit
-  \printfield{note}%
-  \newunit\newblock
-  \iftoggle{bbx:isbn}
-    {\printfield{issn}}
-    {}%
-  \newunit\newblock
-  \usebibmacro{doi+eprint+url}%
-  \newunit\newblock
-  \usebibmacro{addendum+pubstate}%
-  \setunit{\bibpagerefpunct}\newblock
-  \usebibmacro{pageref}%
-  \newunit\newblock
-  \iftoggle{bbx:related}
-    {\usebibmacro{related:init}%
-     \usebibmacro{related}}
-    {}%
+  \mkbibbold{\usebibmacro{title}, \usebibmacro{date}}%
+  \\%
+  \newunit%
+  \usebibmacro{author}%
+  \\%
+  \newunit%
+  \usebibmacro{journal}%
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{book}{%
