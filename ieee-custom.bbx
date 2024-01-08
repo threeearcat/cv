@@ -614,13 +614,13 @@
 \DeclareBibliographyDriver{inproceedings}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \mkbibbold{\usebibmacro{title}, \usebibmacro{date}}%
+  \mkbibbold{\usebibmacro{title}}%
   \\%
   \newunit\newblock%
   \usebibmacro{author}%
   \\%
   \newunit\newblock%
-  \usebibmacro{maintitle+booktitle(inproceedings)}%
+  \usebibmacro{maintitle+booktitle(inproceedings)}, \usebibmacro{date}%%
   \newunit\newblock%
   \printfield{note}%
   \usebibmacro{finentry}}

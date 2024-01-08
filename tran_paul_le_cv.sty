@@ -163,7 +163,8 @@
 \makebibcategory{intlconf}{International Conference}
 \makebibcategory{misc}{Other Publications}
 \setlength{\bibitemsep}{2.3pt}
-\setlength{\bibhang}{.9cm}
+\setlength{\bibhang}{.4cm}
+
 \renewcommand*{\bibitem}{
   \addtocounter{papers}{1}
   \item \mbox{}\hskip-0.9cm\hbox to 0.7cm{\hfill\arabic{papers}.~\,}
@@ -173,7 +174,7 @@
   {
     \setlength{\leftmargin}{\bibhang}%
     \setlength{\itemsep}{\bibitemsep}%
-    \setlength{\parsep}{\bibparsep}
+    \setlength{\parsep}{\bibparsep}%
   }
 }
 {\endlist}
@@ -183,7 +184,7 @@
 \newenvironment{publications}{
   \label{papersstart}
   \vspace*{0cm}
-  \titlespacing{\section}{0pt}{1.5ex}{1ex}\itemsep = 0.00cm
+  \titlespacing{\section}{-0.5cm}{1.5ex}{1ex}\itemsep = 0.00cm
 }{
   \label{papersend}
   \addtocounter{sumpapers}{-1}
