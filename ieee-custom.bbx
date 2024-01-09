@@ -460,13 +460,13 @@
 % New bibliography drivers, using the required order of fields. These
 % are mainly copied from standard.bbx then modified.
 \DeclareBibliographyDriver{article}{%
-  \mkbibbold{\usebibmacro{title}, \usebibmacro{date}}%
+  \mkbibbold{\usebibmacro{title}}%
   \\%
   \newunit%
   \usebibmacro{author}%
   \\%
   \newunit%
-  \usebibmacro{journal}%
+  \usebibmacro{journal}, \usebibmacro{date}%
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{book}{%
